@@ -32,7 +32,16 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] bubbleSort(final int[] array) {
-        return null;
+        for (int j = 0; j < array.length; j++) {
+            for (int i = 1; i < array.length; i++) {
+                if (array[i] < array[i - 1]) {
+                    int temp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
+                }
+            }
+        }
+        return array;
     }
 
     /**
@@ -43,19 +52,44 @@ public class Sorting {
      */
     @SuppressWarnings("unused")
     private static int[] selectionSort(final int[] array) {
-        return null;
+        {
+            int n = array.length;
+
+            // One by one move boundary of unsorted subarray
+            for (int i = 0; i < n-1; i++)
+            {
+                // Find the minimum element in unsorted array
+                int min_idx = i;
+                for (int j = i+1; j < n; j++)
+                    if (array[j] < array[min_idx])
+                        min_idx = j;
+
+                // Swap the found minimum element with the first
+                // element
+                int temp = arr[min_idx];
+                arr[min_idx] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        return arr;
     }
 
     /**
-     * Merge sort.
-     *
-     * @param array array that needs to be sorted
-     * @return the sorted array, or null on failure
+     * @param array s
+     * @param low s
+     * @param hi s
+     * @return s
      */
-    @SuppressWarnings("unused")
-    private static int[] mergeSort(final int[] array) {
-        return null;
+    private static int[] mergeSort(final int[] array, final int low, final int hi) {
+        if (low >= hi) {
+            return new int[]{};
+        }
+        int mid = (low + hi) / 2;
+       int[] lowA =  mergeSort(array, low, mid);
+       int[] hiA = mergeSort(array, mid + 1, hi);
+        return merge(lowA, hiA);
     }
+
 
     /**
      * Merge helper function that merges two sorted arrays into a single sorted array.
