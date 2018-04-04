@@ -176,7 +176,8 @@ public class Sorting {
         int whichAlgorithm;
         while (true) {
             System.out.println("Enter the sorting algorithm that you want to use"
-                    + " (1 for bubble sort, 2 for insertion sort, 3 for merge sort, 4 for built-in): ");
+                    + " (1 for bubble sort, 2 for insertion sort,"
+                    + " 3 for merge sort, 4 for built-in): ");
             whichAlgorithm = userInput.nextInt();
             if (whichAlgorithm > 0 && whichAlgorithm < 5) {
                 break;
